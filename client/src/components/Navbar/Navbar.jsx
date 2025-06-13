@@ -4,7 +4,7 @@ import logo from "../../assets/images/logo.webp";
 
 const Navbar = () => {
   return (
-    <header className="bg-gray-200k shadow-xl">
+    <header className="bg-gray-200k shadow-xl h-[100px]">
       <nav className="flex items-center justify-between w-[90%] m-auto py-[15px]">
         <Link to={"/"}>
           <img className="w-[160px]" src={logo} alt="" />
