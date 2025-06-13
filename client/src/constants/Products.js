@@ -4,7 +4,13 @@ import img3 from "../assets/images/stationery.webp";
 import img4 from "../assets/images/largeFormate.webp";
 import img5 from "../assets/images/Embroidery.webp";
 import img6 from "../assets/images/uv_products.webp";
-const Products = [
+import cardImg1 from "../assets/images/mug.webp";
+import cardImg2 from "../assets/images/Sticker.webp";
+import cardImg3 from "../assets/images/Photo.webp";
+import cardImg4 from "../assets/images/UV_Coffee_Mug.webp";
+import cardImg5 from "../assets/images/Water_Bottle.webp";
+import cardImg6 from "../assets/images/Phone_Case.webp";
+export const Products = [
   {
     img: img1,
     heading: "SUBLIMATION PRINTING",
@@ -168,4 +174,35 @@ const Products = [
   },
 ];
 
-export default Products;
+export const cards = [
+  {
+    img: cardImg1,
+    title: "Magic Mug Printing",
+    price: "1,000",
+  },
+  {
+    img: cardImg2,
+    title: "Sticker Printing",
+    price: "11,000",
+  },
+  {
+    img: cardImg3,
+    title: "Photo Printing",
+    price: "200",
+  },
+  {
+    img: cardImg4,
+    title: "Black Mug Printing",
+    price: "1,500",
+  },
+  {
+    img: cardImg5,
+    title: "Bottle Printing",
+    price: "2,500",
+  },
+  {
+    img: cardImg6,
+    title: "Phone Case",
+    price: "1,600",
+  },
+];

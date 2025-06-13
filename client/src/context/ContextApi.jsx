@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from "react";
-import Products from "../constants/Products";
+import { Products, cards } from "../constants/Products";
 import Reducer from "./Reducer";
 
 const prodContext = createContext();
@@ -7,6 +7,7 @@ const prodContext = createContext();
 const ContextApi = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, {
     prod: Products,
+    card: cards,
     cart: [],
   });
   return (
