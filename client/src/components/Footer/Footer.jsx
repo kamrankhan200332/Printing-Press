@@ -175,13 +175,13 @@ const Footer = () => {
 
         <div className="mid text-white grid grid-cols-2">
           <div className="left">
-            {accordion.map((accord) => (
-              <div>
+            {accordion.map((accord, index) => (
+              <div key={index}>
                 <h1 className="bg-yellow-500 px-4 py-3">{accord.heading}</h1>
                 <ul>
                   <li className="space-x-3 bg-white text-black px-4 py-3">
-                    {accord.subCategories?.map((subCategory) => (
-                      <Link to={subCategory.url} className="">
+                    {accord.subCategories?.map((subCategory, index) => (
+                      <Link key={index} to={subCategory.url} className="">
                         <span className="text-red-700">◉</span>{" "}
                         {subCategory.subCat}
                       </Link>
