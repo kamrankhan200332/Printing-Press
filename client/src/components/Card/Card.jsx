@@ -5,9 +5,8 @@ const Card = () => {
     const { state: { prod, card } } = ProdState();
   return (
     <div>
-      <div className=" px-[70px] py-5">
-        
-        <div className="grid grid-cols-3 gap-10 w-full">
+      <div className="px-[30px] md:px-[40px] xl:px-[70px] py-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full">
           {card.map((cardItem, index) => (
             <div
               key={index}

@@ -176,19 +176,19 @@ const Footer = () => {
     setShow(id);
   };
   return (
-    <div className=" px-[70px] pt-8 bg-black">
+    <div className="px-[30px] md:px-[40px] xl:px-[70px] pt-8 bg-black">
       <div className="space-y-10">
         <div className="head space-y-5 flex flex-col items-center">
-          <h1 className="text-yellow-600 text-xl font-bold">
+          <h1 className="text-yellow-600 text-xl md:text-xl xl:text-2xl font-bold text-center">
             ONLINE PRINTING PRESS IN PAKISTAN
           </h1>
-          <p className="text-5xl font-semibold text-white">
+          <p className=" text-3xl md:text-4xl xl:text-5xl font-bold text-center text-white">
             ISLAMABAD PRINTING PRESS
           </p>
-          <div className="h-[5px] w-[210px] bg-yellow-600"></div>
+          <div className="h-[5px] w-[40%] sm:w-[30%] md:w-[20%] bg-yellow-600"></div>
         </div>
 
-        <div className="mid text-white grid grid-cols-2">
+        <div className="mid gap-6 xl:gap-10 text-white grid grid-cols-1 md:grid-cols-2">
           <div className="left">
             {accordion.map((accord, index) => (
               <div key={index}>
@@ -234,8 +234,17 @@ const Footer = () => {
               </div>
             ))}
           </div>
-          <div className="right flex justify-center items-center text-gray-400">
-            <p>Coming Soon</p>
+          <div className="right border h-fit flex justify-center items-center text-gray-400">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.0433093128116!2d73.0478828758237!3d33.684422739269494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df954b4ef4f4e1%3A0xc3dc5a1a7e1eab4!2sIslamabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1718374712190!5m2!1sen!2s"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Islamabad Location"
+            ></iframe>
           </div>
         </div>
 

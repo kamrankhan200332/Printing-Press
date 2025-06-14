@@ -51,7 +51,7 @@ const Hero = ({ printing, image }) => {
 
       <div className="btn fixed right-4 bottom-4 z-50">
         <a
-          href="https://wa.me/923139165031"
+          href="https://wa.me/923119921465"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white text-xl font-semibold flex items-center gap-2 border-2 px-3 py-2 rounded-full bg-green-500 cursor-pointer"

@@ -22,9 +22,9 @@ const Home = () => {
       </div>
 
       <div className="">
-        <div className=" px-[35px] md:px-[70px] py-5 bg-gray-100">
+        <div className=" px-[30px] md:px-[40px] xl:px-[70px] py-5 bg-gray-100">
           <Heading heading="ONLINE PRINTING STORE" />
-          <div className="grid grid-cols-3 gap-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full">
             {prod.map((cat, index) => (
               <div
                 key={index}
@@ -68,10 +68,10 @@ const Home = () => {
           <Card />
         </div>
 
-        <div className=" px-[70px] py-5">
+        <div className="px-[30px] md:px-[40px] xl:px-[70px] py-5">
           <Heading heading="OUR TEAM MEMBERS" />
 
-          <div className="grid grid-cols-3 gap-10 w-full bg-gray-200 p-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full bg-gray-200 p-10">
             <div className="w-[100%] p-5 rounded shadow-2xl space-y-2">
               <div className="image w-full">
                 <img src={img1} className="rounded-full w-full" alt="" />
