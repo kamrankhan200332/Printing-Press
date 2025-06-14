@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <header className="bg-gray-200k shadow-xl h-[100px]">
       <nav className="flex items-center justify-between w-[90%] m-auto py-[15px]">
-        <Link to={"/"}>
+        <Link to={"/"} onClick={() => setShowMenu(false)}>
           <img className="w-[160px]" src={logo} alt="" />
         </Link>
 
@@ -27,6 +27,7 @@ const Navbar = () => {
                   ? "bg-blue-700 text-white hover:bg-blue-800 py-1 px-2 rounded"
                   : "hover:text-blue-700"
               }`}
+              onClick={() => setShowMenu(false)}
             >
               <Link to={"/sublimation"}>Sublimation Printing</Link>
             </li>
@@ -36,6 +37,7 @@ const Navbar = () => {
                   ? "bg-blue-700 text-white hover:bg-blue-800 py-1 px-2 rounded"
                   : "hover:text-blue-700"
               }`}
+              onClick={() => setShowMenu(false)}
             >
               <Link to={"/offset"}>Offset Printing</Link>
             </li>
@@ -45,6 +47,7 @@ const Navbar = () => {
                   ? "bg-blue-700 text-white hover:bg-blue-800 py-1 px-2 rounded"
                   : "hover:text-blue-700"
               }`}
+              onClick={() => setShowMenu(false)}
             >
               <Link to={"/stationery"}>Stationery Printing</Link>
             </li>
@@ -52,7 +55,7 @@ const Navbar = () => {
                 location.pathname === "/embroidery"
                   ? "bg-blue-700 text-white hover:bg-blue-800 py-1 px-2 rounded"
                   : "hover:text-blue-700"
-              }`}>
+              }`} onClick={() => setShowMenu(false)}>
               <Link to={"/embroidery"}>Embroidery Printing</Link>
             </li> */}
             <li
@@ -61,6 +64,7 @@ const Navbar = () => {
                   ? "bg-blue-700 text-white hover:bg-blue-800 py-1 px-2 rounded"
                   : "hover:text-blue-700"
               }`}
+              onClick={() => setShowMenu(false)}
             >
               <Link to={"/uvPrinting"}>UV Printing</Link>
             </li>
@@ -70,6 +74,7 @@ const Navbar = () => {
                   ? "bg-blue-700 text-white hover:bg-blue-800 py-1 px-2 rounded"
                   : "hover:text-blue-700"
               }`}
+              onClick={() => setShowMenu(false)}
             >
               <Link to={"/largePrinting"}>Large Printing</Link>
             </li>

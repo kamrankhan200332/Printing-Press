@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import footerImage from "../../assets/images/FOOTER_PAK.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const [show, setShow] = useState(1);
+
   const accordion = [
     {
+      id: 1,
       heading: "SUBLIMATION PRINTING",
       subCategories: [
         {
@@ -31,6 +34,7 @@ const Footer = () => {
     },
 
     {
+      id: 2,
       heading: "OFFSET PRINTING",
       subCategories: [
         {
@@ -57,6 +61,7 @@ const Footer = () => {
     },
 
     {
+      id: 3,
       heading: "STATIONERY PRINTING",
       subCategories: [
         {
@@ -83,6 +88,7 @@ const Footer = () => {
     },
 
     {
+      id: 4,
       heading: "LARGE FORMAT PRINTING",
       subCategories: [
         {
@@ -109,6 +115,7 @@ const Footer = () => {
     },
 
     {
+      id: 5,
       heading: "EMBROIDERY PRINTING",
       subCategories: [
         {
@@ -135,6 +142,7 @@ const Footer = () => {
     },
 
     {
+      id: 6,
       heading: "UV PRINTING",
       subCategories: [
         {
@@ -160,6 +168,13 @@ const Footer = () => {
       ],
     },
   ];
+
+  const handleOpen = (id) => {
+    if (show === id) {
+      return setShow(null);
+    }
+    setShow(id);
+  };
   return (
     <div className=" px-[70px] pt-8 bg-black">
       <div className="space-y-10">
@@ -170,20 +185,48 @@ const Footer = () => {
           <p className="text-5xl font-semibold text-white">
             ISLAMABAD PRINTING PRESS
           </p>
-          <dir className="h-[5px] w-[210px] bg-yellow-600"></dir>
+          <div className="h-[5px] w-[210px] bg-yellow-600"></div>
         </div>
 
         <div className="mid text-white grid grid-cols-2">
           <div className="left">
             {accordion.map((accord, index) => (
               <div key={index}>
-                <h1 className="bg-yellow-500 px-4 py-3">{accord.heading}</h1>
-                <ul>
-                  <li className="space-x-3 bg-white text-black px-4 py-3">
+                <h1 className="bg-yellow-500 px-4 py-3 flex items-center justify-between border">
+                  {accord.heading}
+                  <button
+                    className={`cursor-pointer transition-transform duration-300 ${
+                      show === accord.id ? "rotate-180" : "rotate-0"
+                    }`}
+                    onClick={() => handleOpen(accord.id)}
+                  >
+                    {show === accord.id ? "➖" : "➕"}
+                  </button>
+                </h1>
+                <ul
+                  className={`overflow-hidden transition-all ease-in-out transform duration-500 ${
+                    show === accord.id ? "max-h-[500px]" : "max-h-0"
+                  }`}
+                >
+                  <li
+                    className={`bg-white text-black px-4 py-3 space-y-1 transition-opacity duration-500 ease-in-out ${
+                      show === accord.id
+                        ? "opacity-100 pointer-events-auto"
+                        : "opacity-0 pointer-events-none"
+                    }`}
+                  >
                     {accord.subCategories?.map((subCategory, index) => (
-                      <Link key={index} to={subCategory.url} className="">
-                        <span className="text-red-700">◉</span>{" "}
-                        {subCategory.subCat}
+                      <Link
+                        key={index}
+                        to={subCategory.url}
+                        className="flex items-center gap-1"
+                      >
+                        <div>
+                          <span className="text-red-700">◉</span>
+                        </div>
+                        <div className="hover:text-blue-800">
+                          {subCategory.subCat}
+                        </div>
                       </Link>
                     ))}
                   </li>
@@ -191,7 +234,9 @@ const Footer = () => {
               </div>
             ))}
           </div>
-          <div className="right">kami</div>
+          <div className="right flex justify-center items-center text-gray-400">
+            <p>Coming Soon</p>
+          </div>
         </div>
 
         <div className="last">

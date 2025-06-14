@@ -22,7 +22,7 @@ const Home = () => {
       </div>
 
       <div className="">
-        <div className=" px-[70px] py-5 bg-gray-100">
+        <div className=" px-[35px] md:px-[70px] py-5 bg-gray-100">
           <Heading heading="ONLINE PRINTING STORE" />
           <div className="grid grid-cols-3 gap-10 w-full">
             {prod.map((cat, index) => (
@@ -62,7 +62,7 @@ const Home = () => {
         </div>
 
         <div>
-          <div className="px-[70px]">
+          <div className="px-[35px] md:px-[70px]">
             <Heading heading="NEW PRODUCTS" />
           </div>
           <Card />
