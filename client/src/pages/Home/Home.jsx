@@ -3,7 +3,7 @@ import React from "react";
 import Heading from "../../components/Heading/Heading";
 import { Link } from "react-router-dom";
 import { AiOutlineDoubleRight } from "react-icons/ai";
-import { ProdState } from "../../context/contextApi";
+import { ProdState } from "../../context/ContextApi";
 import img1 from "../../assets/images/aliAhmad.jpg";
 import img2 from "../../assets/images/kami.jpg";
 import img3 from "../../assets/images/ceo.jpg";

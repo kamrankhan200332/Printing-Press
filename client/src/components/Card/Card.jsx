@@ -1,8 +1,10 @@
-import React from 'react';
-import { ProdState } from '../../context/contextApi';
+import React from "react";
+import { ProdState } from "../../context/ContextApi";
 
 const Card = () => {
-    const { state: { prod, card } } = ProdState();
+  const {
+    state: { prod, card },
+  } = ProdState();
   return (
     <div>
       <div className="px-[30px] md:px-[40px] xl:px-[70px] py-5">
@@ -32,6 +34,6 @@ const Card = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Card;
