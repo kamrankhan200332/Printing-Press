@@ -19,7 +19,7 @@ const Hero = ({ printing, image }) => {
             backgroundColor: "rgba(0, 0, 0, 0.7)", // 50% black overlay
           }}
         />
-        <div className="relative flex flex-col items-center justify-center gap-10 z-10 h-full">
+        <div className="relative flex flex-col items-center justify-center gap-5 md:gap-7  xl:gap-10 z-10 h-full">
           <h1 className="text-white text-center font-bold px-6 text-3xl md:text-4xl xl:text-5xl">
             {printing}
           </h1>
@@ -54,7 +54,7 @@ const Hero = ({ printing, image }) => {
           href="https://wa.me/923119921465"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-xl font-semibold flex items-center gap-2 border-2 px-3 py-2 rounded-full bg-green-500 cursor-pointer"
+          className="text-white text-sm sm:text-[18px] md:text-xl font-semibold flex items-center gap-2 border-2 px-3 py-2 rounded-full bg-green-500 cursor-pointer"
         >
           <span className="icon">
             <IoLogoWhatsapp />

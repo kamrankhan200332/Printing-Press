@@ -22,7 +22,7 @@ const Home = () => {
       </div>
 
       <div className="">
-        <div className=" px-[30px] md:px-[40px] xl:px-[70px] py-5 bg-gray-100">
+        <div className="px-[20px] md:px-[30px] xl:px-[55px] py-5 bg-gray-100">
           <Heading heading="ONLINE PRINTING STORE" />
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full">
             {prod.map((cat, index) => (
@@ -62,17 +62,17 @@ const Home = () => {
         </div>
 
         <div>
-          <div className="px-[35px] md:px-[70px]">
+          <div className="px-[20px] md:px-[30px] xl:px-[55px]">
             <Heading heading="NEW PRODUCTS" />
           </div>
           <Card />
         </div>
 
-        <div className="px-[30px] md:px-[40px] xl:px-[70px] py-5">
+        <div className="px-[20px] md:px-[30px] xl:px-[55px] py-5">
           <Heading heading="OUR TEAM MEMBERS" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full bg-gray-200 p-10">
-            <div className="w-[100%] p-5 rounded shadow-2xl space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full bg-gray-200 p-3 sm:p-5 md:p-7 xl:p-10">
+            <div className="w-[100%] p-2 sm:p-4 md:p-4 xl:p-5 rounded shadow-2xl space-y-2">
               <div className="image w-full">
                 <img src={img1} className="rounded-full w-full" alt="" />
               </div>
@@ -82,7 +82,7 @@ const Home = () => {
               <p className="text-center font-bold text-xl text-blue-600">CEO</p>
             </div>
 
-            <div className="w-[100%] p-5 rounded shadow-2xl space-y-2">
+            <div className="w-[100%] p-2 sm:p-4 md:p-4 xl:p-5 rounded shadow-2xl space-y-2">
               <div className="image">
                 <img src={img2} className="rounded-full w-full" alt="" />
               </div>
@@ -92,7 +92,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="w-[100%] p-5 rounded shadow-2xl space-y-2">
+            <div className="w-[100%] p-2 sm:p-4 md:p-4 xl:p-5 rounded shadow-2xl space-y-2">
               <div className="image">
                 <img src={img3} className="rounded-full w-full" alt="" />
               </div>

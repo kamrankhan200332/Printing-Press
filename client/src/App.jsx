@@ -10,10 +10,14 @@ import LargePrinting from "./pages/LargePrinting/LargePrinting";
 import Stationery from "./pages/Stationery/Stationery";
 import UVPrinting from "./pages/UVPrinting/UVPrinting";
 import Cart from "./pages/Cart/Cart";
+import SingleProduct from "./pages/SingleProduct/SingleProduct";
+import Error from "./pages/Error/Error";
+import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 
 const App = () => {
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <div>
         <Navbar />
         <Routes>
@@ -25,6 +29,8 @@ const App = () => {
           <Route path="/uvPrinting" exact element={<UVPrinting />} />
           <Route path="/largePrinting" exact element={<LargePrinting />} />
           <Route path="/cart" exact element={<Cart />} />
+          <Route path="/single" exact element={<SingleProduct />} />
+          <Route path="/*" exact element={<Error />} />
         </Routes>
         <Footer />
       </div>

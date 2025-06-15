@@ -8,7 +8,7 @@ const Card = () => {
   } = ProdState();
   return (
     <div>
-      <div className="px-[30px] md:px-[40px] xl:px-[70px] py-5">
+      <div className="px-[20px] md:px-[30px] xl:px-[55px] py-5">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full">
           {card.map((cardItem, index) => (
             <div

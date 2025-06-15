@@ -18,7 +18,7 @@ const Cart = () => {
     setTotal(totalPrice.toFixed(2)); // optionally round to 2 decimal places
   }, [cart]);
   return (
-    <div className="home px-[30px] md:px-[40px] xl:px-[70px] my-3 gap-5 flex flex-col md:flex-row justify-between ">
+    <div className="home px-[30px] md:px-[40px] xl:px-[70px] py-5 gap-5 flex flex-col md:flex-row justify-between ">
       <div className="productContainer flex w-full md:w-[70%]">
         <div className="listGroup w-[100%]">
           {cart.map((prod) => (
@@ -76,7 +76,7 @@ const Cart = () => {
         </div>
       </div>
 
-      <div className="filter w-full md:w-[30%] rounded h-[86vh] bg-slate-700 space-y-4 text-white flex items-start flex-col p-3">
+      <div className="filter w-full md:w-[30%] rounded bg-slate-700 space-y-4 text-white flex items-start flex-col p-3">
         <span className="text-xl font-bold">
           Subtotal ({cart.length}) items
         </span>
