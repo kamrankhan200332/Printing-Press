@@ -6,7 +6,6 @@ const Card = () => {
     state: { card, cart },
     dispatch,
   } = ProdState();
-  console.log(cart);
   return (
     <div>
       <div className="px-[30px] md:px-[40px] xl:px-[70px] py-5">

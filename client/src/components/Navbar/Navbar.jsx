@@ -23,7 +23,7 @@ const Navbar = () => {
 
   
   return (
-    <header className="bg-white shadow-xl h-[100px] stickyk top-0 z-[1000]">
+    <header className="bg-white shadow-xl h-[100px] stickyk ktop-0 z-[1000]">
       <nav className="flex items-center justify-between w-[90%] m-auto py-[15px]">
         <Link to={"/"} onClick={() => setShowMenu(false)}>
           <img className="w-[160px]" src={logo} alt="" />
@@ -114,7 +114,7 @@ const Navbar = () => {
               </div>
             </div>
             {showCart && (
-              <div className="dropdown w-[300px] overflow-auto max-h-[300px] rounded bg-white border absolute right-20 top-20 z-50">
+              <div className="dropdown min-w-[300px]k w-[65%] sm:w-[45%] md:w-[40%] xl:w-[25%] overflow-auto max-h-[300px] rounded bg-white border absolute right-20 top-20 z-50">
                 {cart.length > 0 ? (
                   <>
                     {cart.map((prod, index) => (

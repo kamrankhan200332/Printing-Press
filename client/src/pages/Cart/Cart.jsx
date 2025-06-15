@@ -8,8 +8,7 @@ const Cart = () => {
     dispatch,
   } = ProdState();
 
-    const [total, setTotal] = useState(0);
-    
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const totalPrice = cart.reduce((acc, curr) => {
@@ -19,13 +18,13 @@ const Cart = () => {
     setTotal(totalPrice.toFixed(2)); // optionally round to 2 decimal places
   }, [cart]);
   return (
-    <div className="home flex justify-between ">
-      <div className="productContainer flex m-[10px] w-[70%]">
+    <div className="home px-[30px] md:px-[40px] xl:px-[70px] my-3 gap-5 flex flex-col md:flex-row justify-between ">
+      <div className="productContainer flex w-full md:w-[70%]">
         <div className="listGroup w-[100%]">
           {cart.map((prod) => (
             <div
               key={prod.id}
-              className="flex border items-center my-1 rounded py-1 px-2 justify-between"
+              className="flex border space-x-1.5 items-center my-1 rounded py-1 px-2 justify-between"
             >
               <div className="image">
                 <img
@@ -40,9 +39,8 @@ const Cart = () => {
               <div className="price">
                 <span>$ {prod.price}</span>
               </div>
-              <div className="rating">
-              </div>
-              <div className="flex w-[100px] border p-0.5 rounded">
+
+              <div className="w-[100px] border p-0.5 rounded hidden md:block">
                 <select
                   className="select w-[100%] border-none outline-none cursor-pointer"
                   value={prod.qty}
@@ -60,8 +58,8 @@ const Cart = () => {
                     <option key={x + 1}>{x + 1}</option>
                   ))}
                 </select>
-                {/* <div>kamran </div> */}
               </div>
+
               <div className="delete">
                 <button
                   type="button"
@@ -78,12 +76,12 @@ const Cart = () => {
         </div>
       </div>
 
-      <div className="filter w-[29%] m-[10px] h-[86vh] bg-slate-700 space-y-4 text-white flex items-start flex-col p-3">
+      <div className="filter w-full md:w-[30%] rounded h-[86vh] bg-slate-700 space-y-4 text-white flex items-start flex-col p-3">
         <span className="text-xl font-bold">
           Subtotal ({cart.length}) items
         </span>
         <span className="font-bold text-[20px]">Total: Rs {total}</span>
-        
+
         <button
           type="button"
           className="bg-blue-700 hover:bg-blue-800 cursor-pointer font-semibold py-1 flex items-center justify-center text-[18px] w-[100%] rounded"
