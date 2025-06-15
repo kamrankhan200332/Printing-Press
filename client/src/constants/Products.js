@@ -12,6 +12,7 @@ import cardImg5 from "../assets/images/Water_Bottle.webp";
 import cardImg6 from "../assets/images/Phone_Case.webp";
 export const Products = [
   {
+    id: 1,
     img: img1,
     heading: "SUBLIMATION PRINTING",
     subCategories: [
@@ -39,6 +40,7 @@ export const Products = [
   },
 
   {
+    id: 2,
     img: img2,
     heading: "OFFSET PRINTING",
     subCategories: [
@@ -66,6 +68,7 @@ export const Products = [
   },
 
   {
+    id: 3,
     img: img3,
     heading: "STATIONERY PRINTING",
     subCategories: [
@@ -93,6 +96,7 @@ export const Products = [
   },
 
   {
+    id: 4,
     img: img4,
     heading: "LARGE FORMAT PRINTING",
     subCategories: [
@@ -120,6 +124,7 @@ export const Products = [
   },
 
   {
+    id: 5,
     img: img5,
     heading: "EMBROIDERY PRINTING",
     subCategories: [
@@ -147,6 +152,7 @@ export const Products = [
   },
 
   {
+    id: 6,
     img: img6,
     heading: "UV PRINTING",
     subCategories: [
@@ -176,31 +182,37 @@ export const Products = [
 
 export const cards = [
   {
+    id: 1,
     img: cardImg1,
     title: "Magic Mug Printing",
     price: "1,000",
   },
   {
+    id: 2,
     img: cardImg2,
     title: "Sticker Printing",
     price: "11,000",
   },
   {
+    id: 3,
     img: cardImg3,
     title: "Photo Printing",
     price: "200",
   },
   {
+    id: 4,
     img: cardImg4,
     title: "Black Mug Printing",
     price: "1,500",
   },
   {
+    id: 5,
     img: cardImg5,
     title: "Bottle Printing",
     price: "2,500",
   },
   {
+    id: 6,
     img: cardImg6,
     title: "Phone Case",
     price: "1,600",

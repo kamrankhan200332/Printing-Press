@@ -3,8 +3,10 @@ import { ProdState } from "../../context/ContextApi";
 
 const Card = () => {
   const {
-    state: { prod, card },
+    state: { card, cart },
+    dispatch,
   } = ProdState();
+  console.log(cart);
   return (
     <div>
       <div className="px-[30px] md:px-[40px] xl:px-[70px] py-5">
@@ -24,9 +26,25 @@ const Card = () => {
                 {cardItem.price}
               </p>
               <div className="btn flex items-center justify-center">
-                <button className="bg-blue-700 text-white hover:bg-blue-800 cursor-pointer rounded py-2 px-5 font-semibold">
-                  BUY NOW
-                </button>
+                {cart.some((p) => p.id === cardItem.id) ? (
+                  <button
+                    className="bg-red-700 text-white hover:bg-red-800 cursor-pointer rounded py-2 px-5 font-semibold w-full"
+                    onClick={() =>
+                      dispatch({ type: "REMOVE_FROM_CART", payload: cardItem })
+                    }
+                  >
+                    REMOVE_FROM_CART
+                  </button>
+                ) : (
+                  <button
+                    className="bg-blue-700 text-white hover:bg-blue-800 cursor-pointer rounded py-2 px-5 font-semibold w-full"
+                    onClick={() =>
+                      dispatch({ type: "ADD_TO_CART", payload: cardItem })
+                    }
+                  >
+                    ADD TO CART
+                  </button>
+                )}
               </div>
             </div>
           ))}

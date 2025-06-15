@@ -234,7 +234,7 @@ const Footer = () => {
               </div>
             ))}
           </div>
-          <div className="right border h-fit flex justify-center items-center text-gray-400">
+          {/* <div className="right border h-fit flex justify-center items-center text-gray-400">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.0433093128116!2d73.0478828758237!3d33.684422739269494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df954b4ef4f4e1%3A0xc3dc5a1a7e1eab4!2sIslamabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1718374712190!5m2!1sen!2s"
               width="100%"
@@ -245,7 +245,7 @@ const Footer = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="Islamabad Location"
             ></iframe>
-          </div>
+          </div> */}
         </div>
 
         <div className="last">

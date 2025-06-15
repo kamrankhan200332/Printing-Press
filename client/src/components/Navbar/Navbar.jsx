@@ -4,12 +4,24 @@ import logo from "../../assets/images/logo.webp";
 import { FaShoppingCart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { AiFillDelete } from "react-icons/ai";
+
+import { ProdState } from "../../context/ContextApi";
 
 const Navbar = () => {
+  const [showCart, setShowCart] = useState(false);
+
+  const handleToggle = () => {
+    setShowCart(!showCart);
+  };
+  const {
+    state: { cart },
+    dispatch,
+  } = ProdState();
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
   return (
-    <header className="bg-gray-200k shadow-xl h-[100px]">
+    <header className="bg-white shadow-xl h-[100px] sticky top-0 z-50">
       <nav className="flex items-center justify-between w-[90%] m-auto py-[15px]">
         <Link to={"/"} onClick={() => setShowMenu(false)}>
           <img className="w-[160px]" src={logo} alt="" />
@@ -89,8 +101,67 @@ const Navbar = () => {
             {showMenu ? <IoMdClose /> : <GiHamburgerMenu />}
           </div>
 
-          <div className="cart text-[20px]">
-            <FaShoppingCart />
+          <div>
+            <div
+              className="relative cart text-[20px] cursor-pointer bg-blue-700 py-2 px-4 rounded-full text-white"
+              onClick={handleToggle}
+            >
+              <FaShoppingCart />
+              <div className="absolute top-[-7px] right-[-3px] w-[20px] text-sm h-[20px] rounded-full bg-red-700 font-semibold text-white flex items-center justify-center">
+                {cart.length}
+              </div>
+            </div>
+            {showCart && (
+              <div className="dropdown w-[300px] overflow-auto max-h-[300px] rounded bg-white border absolute right-20 top-18 z-50">
+                {cart.length > 0 ? (
+                  <>
+                    {cart.map((prod, index) => (
+                      <span
+                        className="cartItem space-y-3 hover:bg-green-200 flex items-center justify-between p-2 mb-1"
+                        // key={prod.id}
+                        key={index}
+                      >
+                        <img
+                          src={prod.img}
+                          className="cartItemImg w-[50px] h-[50px] mr-2 object-cover rounded-full"
+                          alt={prod.title}
+                        />
+                        <div className="cartItemDetail flex flex-col flex-1 py-0 px-[20px]">
+                          <span className="font-semibold">{prod.title}</span>
+                          <span className="font-semibold">
+                            ${prod.price.split(".")[0]}
+                          </span>
+                        </div>
+                        <AiFillDelete
+                          fontSize="20px"
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            dispatch({
+                              type: "REMOVE_FROM_CART",
+                              payload: prod,
+                            })
+                          }
+                        />
+                      </span>
+                    ))}
+                    <Link to="/cart">
+                      <div className="flex items-center justify-center">
+                        <button
+                          onClick={() => setShowCart(false)}
+                          className="w-[96%] mx-[10px] my-0  bg-blue-700 py-1 rounded mb-1 flex items-center justify-center font-semibold text-white cursor-pointer"
+                        >
+                          Go To Cart
+                        </button>
+                      </div>
+                    </Link>
+                  </>
+                ) : (
+                  <span className="p-3 flex items-center justify-center bg-green-800 text-white font-bold">
+                    Cart is Empty!
+                  </span>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </nav>

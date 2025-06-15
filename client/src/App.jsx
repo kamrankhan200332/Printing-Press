@@ -9,6 +9,7 @@ import Embroidery from "./pages/Embroidery/Embroidery";
 import LargePrinting from "./pages/LargePrinting/LargePrinting";
 import Stationery from "./pages/Stationery/Stationery";
 import UVPrinting from "./pages/UVPrinting/UVPrinting";
+import Cart from "./pages/Cart/Cart";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/embroidery" exact element={<Embroidery />} />
           <Route path="/uvPrinting" exact element={<UVPrinting />} />
           <Route path="/largePrinting" exact element={<LargePrinting />} />
+          <Route path="/cart" exact element={<Cart />} />
         </Routes>
         <Footer />
       </div>
