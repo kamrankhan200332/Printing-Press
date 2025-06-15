@@ -20,8 +20,10 @@ const Navbar = () => {
   } = ProdState();
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
+
+  
   return (
-    <header className="bg-white shadow-xl h-[100px] sticky top-0 z-50">
+    <header className="bg-white shadow-xl h-[100px] stickyk top-0 z-[1000]">
       <nav className="flex items-center justify-between w-[90%] m-auto py-[15px]">
         <Link to={"/"} onClick={() => setShowMenu(false)}>
           <img className="w-[160px]" src={logo} alt="" />
@@ -29,7 +31,7 @@ const Navbar = () => {
 
         <div
           className={`xl:static xl:min-h-fit absolute left-0 flex items-center px-15 z-50 w-full xl:w-auto bg-white border-t xl:border-none border-gray-300 min-h-[60vh] ${
-            showMenu ? "top-[14%]" : "top-[-100%]"
+            showMenu ? "top-[100px]" : "top-[-100%]"
           } duration-500 ease-in-out `}
         >
           <ul className="flex flex-col xl:flex-row xl:items-center justify-between gap-[35px] xl:gap-[20px] font-semibold text-[20px] xl:text-[17px] uppercase">
@@ -112,7 +114,7 @@ const Navbar = () => {
               </div>
             </div>
             {showCart && (
-              <div className="dropdown w-[300px] overflow-auto max-h-[300px] rounded bg-white border absolute right-20 top-18 z-50">
+              <div className="dropdown w-[300px] overflow-auto max-h-[300px] rounded bg-white border absolute right-20 top-20 z-50">
                 {cart.length > 0 ? (
                   <>
                     {cart.map((prod, index) => (
