@@ -30,7 +30,7 @@ const Hero = ({ printing, image }) => {
             href="https://wa.me/923119921465"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white text-2xl font-bold flex items-center gap-2 border-2 p-3 rounded bg-green-500 cursor-pointer"
+            className="text-white sm:text-[18px] md:text-xl xl:text-2xl font-bold flex items-center gap-1 md:gap-2 border-2 p-2 md:p-3 rounded bg-green-500 cursor-pointer"
           >
             <span className="icon">
               <IoLogoWhatsapp />
@@ -49,17 +49,19 @@ const Hero = ({ printing, image }) => {
         </div>
       </div>
 
-      <div className="btn fixed right-4 bottom-4 z-50">
+      <div className="btn fixed right-5.5 md:right-8 bottom-4 z-50">
         <a
           href="https://wa.me/923119921465"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-white text-sm sm:text-[18px] md:text-xl font-semibold flex items-center gap-2 border-2 px-3 py-2 rounded-full bg-green-500 cursor-pointer"
+          className="text-white text-3xl sm:text-[18px] md:text-xl font-semibold flex items-center gap-2 border-2 px-1 sm:px-3 py-1 sm:py-2 rounded-full bg-green-500 cursor-pointer"
         >
           <span className="icon">
             <IoLogoWhatsapp />
           </span>
-          <p className="text-center">How may I help you?</p>
+          <div className="hidden sm:block">
+            <p className="text-center">How may I help you?</p>
+          </div>
         </a>
       </div>
     </div>
