@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/uvPrinting" exact element={<UVPrinting />} />
           <Route path="/largePrinting" exact element={<LargePrinting />} />
           <Route path="/cart" exact element={<Cart />} />
-          <Route path="/single" exact element={<SingleProduct />} />
+          <Route path="/singleProduct" exact element={<SingleProduct />} />
           <Route path="/*" exact element={<Error />} />
         </Routes>
         <Footer />

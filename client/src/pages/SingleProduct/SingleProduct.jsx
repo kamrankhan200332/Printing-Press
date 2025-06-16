@@ -7,16 +7,26 @@ import heroImg from "../../assets/images/printing.jpg";
 import Description from "../../components/SinglePageProduct/Description";
 import Brand from "../../components/SinglePageProduct/Brand";
 import Review from "../../components/SinglePageProduct/Review";
+import { useLocation } from "react-router-dom";
+import { ProdState } from "../../context/ContextApi";
 
 const SingleProduct = () => {
+  const location = useLocation();
+  const {id, title, price, img } = location.state;
+
   const [description, setDescription] = useState(true);
   const [brand, setBrand] = useState(false);
   const [review, setReview] = useState(false);
+
+  const {
+    state: { cart },
+    dispatch,
+  } = ProdState();
   return (
     <div>
-      <Hero printing="Sticker Printing" image={heroImg} />
+      <Hero printing={title} image={heroImg} />
       <div className="px-[20px] md:px-[30px] xl:px-[55px] py-5">
-        <Heading heading="Sticker Printing" />
+        <Heading heading={title} />
         <div className=" gap-6 xl:gap-10 grid grid-cols-1 md:grid-cols-2">
           <div className="image rounded p-4 bg-white shadow-xl">
             <img src={img} alt="image" className="w-full rounded" />
@@ -26,19 +36,46 @@ const SingleProduct = () => {
               <h1 className="bg-white p-3 text-gray-800 rounded-t-2xl">
                 Product Name
               </h1>
-              <p className="text-white p-3">Sticker Printing</p>
+              <p className="text-white p-3">{title}</p>
             </div>
             <div className="name bg-blue-700 rounded-xl p-3 sm:p-4 text-xl sm:text-2xl font-bold">
               <h1 className="bg-white p-3 text-gray-800 rounded-t-2xl">
                 Product Price
               </h1>
-              <p className="text-white p-3">Rs 11,000</p>
+              <p className="text-white p-3">Rs. {price}</p>
             </div>
-            <div className="name bg-blue-700 text-white space-x-3 cursor-pointer hover:bg-blue-800 flex items-center justify-center rounded-xl py-6 sm:py-9 md:py-10 xl:py-13 text-xl sm:text-2xl font-bold">
-              <span className="icon">
-                <FaCartPlus />
-              </span>
-              <button className="">ADD TO CART</button>
+            <div className="w-full">
+              {cart.some((p) => p.id === id) ? (
+                <div
+                  className="bg-red-700 text-white space-x-3 cursor-pointer hover:bg-red-800 flex items-center justify-center rounded-xl py-6 sm:py-9 md:py-10 xl:py-13 text-xl sm:text-2xl font-bold"
+                  onClick={() =>
+                    dispatch({
+                      type: "REMOVE_FROM_CART",
+                      payload: { id, title, price, img },
+                    })
+                  }
+                >
+                  <span className="icon">
+                    <FaCartPlus />
+                  </span>
+                  <span>REMOVE FROM CART</span>
+                </div>
+              ) : (
+                <div
+                  className="bg-blue-700 text-white space-x-3 cursor-pointer hover:bg-blue-800 flex items-center justify-center rounded-xl py-6 sm:py-9 md:py-10 xl:py-13 text-xl sm:text-2xl font-bold"
+                  onClick={() =>
+                    dispatch({
+                      type: "ADD_TO_CART",
+                      payload: { id, title, price, img },
+                    })
+                  }
+                >
+                  <span className="icon">
+                    <FaCartPlus />
+                  </span>
+                  <span>ADD TO CART</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
