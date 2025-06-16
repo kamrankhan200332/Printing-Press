@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.webp";
-import { FaShoppingCart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { AiFillDelete } from "react-icons/ai";
-
+import { FaCartPlus } from "react-icons/fa";
 import { ProdState } from "../../context/ContextApi";
 
 const Navbar = () => {
@@ -21,7 +20,6 @@ const Navbar = () => {
   const location = useLocation();
   const [showMenu, setShowMenu] = useState(false);
 
-  
   return (
     <div className=" sticky top-0 left-0 z-50">
       <header className="bg-white shadow-xl">
@@ -109,7 +107,7 @@ const Navbar = () => {
                 className="relative cart text-[20px] cursor-pointer bg-blue-700 py-2 px-4 rounded-full text-white"
                 onClick={handleToggle}
               >
-                <FaShoppingCart />
+                <FaCartPlus />
                 <div className="absolute top-[-7px] right-[-3px] w-[20px] text-sm h-[20px] rounded-full bg-red-700 font-semibold text-white flex items-center justify-center">
                   {cart.length}
                 </div>

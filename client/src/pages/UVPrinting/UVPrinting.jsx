@@ -9,7 +9,7 @@ const UVPrinting = () => {
     <div>
       <Hero printing="UV DTF Printing in Pakistan" image={uvImg} />
       <div>
-        <div className="px-[70px]">
+        <div className="px-[20px] md:px-[30px] xl:px-[55px]">
           <Heading heading="UV DTF PRODUCTS" />
         </div>
         <Card />

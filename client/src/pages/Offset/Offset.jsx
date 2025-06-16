@@ -13,7 +13,7 @@ const Offset = () => {
     <div>
       <Hero printing="Offset Printing in Pakistan" image={offsetImg} />
       <div>
-        <div className="px-[70px]">
+        <div className="px-[20px] md:px-[30px] xl:px-[55px]">
           <Heading heading="OFFSET PRODUCTS" />
         </div>
         <Card />

@@ -12,7 +12,7 @@ const Sublimation = () => {
         image={sublimationImg}
       />
       <div>
-        <div className="px-[70px]">
+        <div className="px-[20px] md:px-[30px] xl:px-[55px]">
           <Heading heading="SUBLIMATION PRODUCTS" />
         </div>
         <Card />

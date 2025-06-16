@@ -9,7 +9,7 @@ const Stationery = () => {
     <div>
       <Hero printing="Stationery Printing in Pakistan" image={stationeryImg} />
       <div>
-        <div className="px-[70px]">
+        <div className="px-[20px] md:px-[30px] xl:px-[55px]">
           <Heading heading="STATIONERY PRODUCTS" />
         </div>
         <Card />
