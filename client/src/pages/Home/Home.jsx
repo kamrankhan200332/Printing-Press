@@ -16,7 +16,7 @@ const Home = () => {
     state: { prod, card },
   } = ProdState();
   return (
-    <div className=" ">
+    <div className="font-['Playfair_Display']">
       <div>
         <Hero printing="Printing Shop Online in Pakistan" image={heroImg} />
       </div>

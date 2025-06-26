@@ -167,6 +167,8 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
+
+      {/* <div className="separator"></div> */}
     </div>
   );
 };

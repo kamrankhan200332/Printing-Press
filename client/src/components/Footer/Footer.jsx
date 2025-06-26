@@ -176,7 +176,7 @@ const Footer = () => {
     setShow(id);
   };
   return (
-    <div className="px-[30px] md:px-[40px] xl:px-[70px] pt-8 bg-black">
+    <div className="px-[30px] md:px-[40px] xl:px-[70px] pt-8 bg-black font-['Playfair_Display']">
       <div className="space-y-10">
         <div className="head space-y-5 flex flex-col items-center">
           <h1 className="text-yellow-600 text-xl md:text-xl xl:text-2xl font-bold text-center">

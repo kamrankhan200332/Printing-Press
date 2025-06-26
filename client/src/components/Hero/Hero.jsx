@@ -5,7 +5,7 @@ import { IoSearchOutline } from "react-icons/io5";
 
 const Hero = ({ printing, image }) => {
   return (
-    <div className="">
+    <div className="font-['Playfair_Display']">
       <div
         className="hero relative bg-cover bg-center py-10 md:py-13 xl:py-20"
         style={{
@@ -27,7 +27,7 @@ const Hero = ({ printing, image }) => {
             Islamabad Printing Press
           </p>
           <a
-            href="https://wa.me/923119921465"
+            href="https://wa.me/923262147743"
             target="_blank"
             rel="noopener noreferrer"
             className="text-white sm:text-[18px] md:text-xl xl:text-2xl font-bold flex items-center gap-1 md:gap-2 border-2 p-2 md:p-3 rounded bg-green-500 cursor-pointer"
@@ -35,7 +35,7 @@ const Hero = ({ printing, image }) => {
             <span className="icon">
               <IoLogoWhatsapp />
             </span>
-            <p>+92 3119921465</p>
+            <p>+92 3262147743</p>
           </a>
 
           <div className="bg-white w-[70%] md:w-[50%] px-6 hidden sm:block font-semibold p-3 rounded-xl">
@@ -51,7 +51,7 @@ const Hero = ({ printing, image }) => {
 
       <div className="btn fixed right-5.5 md:right-8 bottom-4 z-50">
         <a
-          href="https://wa.me/923119921465"
+          href="https://wa.me/923262147743"
           target="_blank"
           rel="noopener noreferrer"
           className="text-white text-3xl sm:text-[18px] md:text-xl font-semibold flex items-center gap-2 border-2 px-1 sm:px-3 py-1 sm:py-2 rounded-full bg-green-500 cursor-pointer"

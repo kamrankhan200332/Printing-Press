@@ -6,7 +6,7 @@ const Error = () => {
   return (
     <div>
       <div className="flex items-center justify-center flex-col py-8 sm:py-10 md:py-15 xl:py-20  gap-5">
-        <h1 className=" text-gray-700 text-center font-bold px-6 text-3xl md:text-4xl xl:text-5xl">
+        <h1 className=" text-gray-700k text-[#ea3943] text-center font-bold px-6 text-3xl md:text-4xl xl:text-5xl">
           🚫 404 - Page Not Found
         </h1>
         <p className="text-gray-700 font-semibold text-xl md:text-2xl px-6 text-center">
