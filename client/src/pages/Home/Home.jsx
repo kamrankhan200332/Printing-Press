@@ -11,6 +11,10 @@ import Hero from "../../components/Hero/Hero";
 import Card from "../../components/Card/Card";
 import heroImg from "../../assets/images/printing.jpg";
 
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+
 const Home = () => {
   const {
     state: { prod, card },
@@ -25,39 +29,50 @@ const Home = () => {
         <div className="px-[20px] md:px-[30px] xl:px-[55px] py-5 bg-gray-100">
           <Heading heading="ONLINE PRINTING STORE" />
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full">
-            {prod.map((cat, index) => (
-              <div
-                key={index}
-                className="w-[100%] rounded-2xl shadow-xl border border-gray-300 bg-white pb-10"
-              >
-                <div className="image rounded-2xl">
-                  <img src={cat.img} className="w-full rounded-2xl" alt="" />
-                </div>
-                <h1 className="text-center font-semibold text-xl py-3 mb-3 bg-blue-700 text-white">
-                  {cat.heading}
-                </h1>
-                <ul className="">
-                  {cat.subCategories?.map((subCategory, index) => (
-                    <li
-                      key={index}
-                      className={`flex items-center space-x-2 ${
-                        index % 2 === 0 ? "bg-gray-200" : "bg-white"
-                      } px-7 py-2`}
-                    >
-                      <span className="icon">
-                        <AiOutlineDoubleRight />
-                      </span>
-                      <Link
-                        to={subCategory.url}
-                        className="text-blue-500 hover:text-blue-700 font-medium"
+            {prod.map((cat, index) => {
+              const [ref, inView] = useInView({
+                triggerOnce: true,
+                threshold: 0.2,
+              });
+
+              return (
+                <motion.div
+                  ref={ref}
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="w-full rounded-2xl shadow-xl border border-gray-300 bg-white pb-10"
+                >
+                  <div className="image rounded-2xl">
+                    <img src={cat.img} className="w-full rounded-2xl" alt="" />
+                  </div>
+                  <h1 className="text-center font-semibold text-xl py-3 mb-3 bg-blue-700 text-white">
+                    {cat.heading}
+                  </h1>
+                  <ul className="">
+                    {cat.subCategories?.map((subCategory, i) => (
+                      <li
+                        key={i}
+                        className={`flex items-center space-x-2 ${
+                          i % 2 === 0 ? "bg-gray-200" : "bg-white"
+                        } px-7 py-2`}
                       >
-                        {subCategory.subCat}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                        <span className="icon">
+                          <AiOutlineDoubleRight />
+                        </span>
+                        <Link
+                          to={subCategory.url}
+                          className="text-blue-500 hover:text-blue-700 font-medium"
+                        >
+                          {subCategory.subCat}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
 
@@ -72,35 +87,53 @@ const Home = () => {
           <Heading heading="OUR TEAM MEMBERS" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-10 w-full bg-gray-200 p-3 sm:p-5 md:p-7 xl:p-10">
-            <div className="w-[100%] p-2 sm:p-4 md:p-4 xl:p-5 rounded shadow-2xl space-y-2">
-              <div className="image w-full">
-                <img src={img1} className="rounded-full w-full" alt="" />
-              </div>
-              <h1 className="text-center font-semibold text-xl ">
-                Prof Dr. Ali Ahmad
-              </h1>
-              <p className="text-center font-bold text-xl text-blue-600">CEO</p>
-            </div>
+            {[
+              {
+                img: img1,
+                name: "Prof Dr. Ali Ahmad",
+                role: "CEO",
+              },
+              {
+                img: img2,
+                name: "Kamran Khan",
+                role: "Web Developer",
+              },
+              {
+                img: img3,
+                name: "Rasool Khan",
+                role: "Graphic Designer",
+              },
+            ].map((member, index) => {
+              const [ref, inView] = useInView({
+                triggerOnce: true,
+                threshold: 0.2,
+              });
 
-            <div className="w-[100%] p-2 sm:p-4 md:p-4 xl:p-5 rounded shadow-2xl space-y-2">
-              <div className="image">
-                <img src={img2} className="rounded-full w-full" alt="" />
-              </div>
-              <h1 className="text-center font-semibold text-xl">Kamran Khan</h1>
-              <p className="text-center font-bold text-xl text-blue-600">
-                Web Developer
-              </p>
-            </div>
-
-            <div className="w-[100%] p-2 sm:p-4 md:p-4 xl:p-5 rounded shadow-2xl space-y-2">
-              <div className="image">
-                <img src={img3} className="rounded-full w-full" alt="" />
-              </div>
-              <h1 className="text-center font-semibold text-xl">Rasool Khan</h1>
-              <p className="text-center font-bold text-xl text-blue-600">
-                Graphic Designer
-              </p>
-            </div>
+              return (
+                <motion.div
+                  key={index}
+                  ref={ref}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className="w-[100%] p-2 sm:p-4 md:p-4 xl:p-5 rounded shadow-2xl space-y-2"
+                >
+                  <div className="image w-full">
+                    <img
+                      src={member.img}
+                      className="rounded-full w-full"
+                      alt={member.name}
+                    />
+                  </div>
+                  <h1 className="text-center font-semibold text-xl">
+                    {member.name}
+                  </h1>
+                  <p className="text-center font-bold text-xl text-blue-600">
+                    {member.role}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -6,12 +6,17 @@ import { IoMdClose } from "react-icons/io";
 import { AiFillDelete } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { ProdState } from "../../context/ContextApi";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const [showCart, setShowCart] = useState(false);
+  const [showUser, setShowUser] = useState(false);
 
   const handleToggle = () => {
     setShowCart(!showCart);
+  };
+  const handleToggleUser = () => {
+    setShowUser(!showUser);
   };
   const {
     state: { cart },
@@ -94,7 +99,7 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4 font-['Playfair_Display']">
             <div
               className="icon text-2xl xl:hidden cursor-pointer"
               onClick={() => setShowMenu(!showMenu)}
@@ -102,10 +107,13 @@ const Navbar = () => {
               {showMenu ? <IoMdClose /> : <GiHamburgerMenu />}
             </div>
 
-            <div>
+            <div className="flex items-center space-x-4">
               <div
-                className="relative cart text-[20px] cursor-pointer bg-blue-700 py-2 px-4 rounded-full text-white"
-                onClick={handleToggle}
+                className="relative cart text-[20px] cursor-pointer bg-blue-700 py-2 px-2 rounded-full text-white"
+                onClick={() => {
+                  handleToggle();
+                  setShowUser(false);
+                }}
               >
                 <FaCartPlus />
                 <div className="absolute top-[-7px] right-[-3px] w-[20px] text-sm h-[20px] rounded-full bg-red-700 font-semibold text-white flex items-center justify-center">
@@ -163,6 +171,34 @@ const Navbar = () => {
                   )}
                 </div>
               )}
+
+              <div
+                className="relative user text-[20px] bg-blue-700 py-2 px-2 rounded-full text-white"
+                onClick={() => {
+                  handleToggleUser();
+                  setShowCart(false);
+                }}
+              >
+                <div className="cursor-pointer">
+                  <FaRegUserCircle />
+                </div>
+                {showUser && (
+                  <div className="dropdown font-semibold absolute top-11 right-0 z-50 rounded bg-gray-500 w-[200px] p-2 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-2">
+                    <Link
+                      to={"/signup"}
+                      className="rounded cursor-pointer hover:bg-white hover:text-black py-1 px-2 border border-gray-400 w-full flex items-center justify-center"
+                    >
+                      Sign up
+                    </Link>
+                    <Link
+                      to={"/login"}
+                      className="rounded w-full bg-blue-700 text-white px-2 py-1 cursor-pointer flex items-center justify-center"
+                    >
+                      Login
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </nav>

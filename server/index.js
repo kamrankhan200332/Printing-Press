@@ -1,15 +1,20 @@
 const express = require("express");
 const app = express();
-const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const dbConnection = require("./App/db");
 const { PORT } = require("./config");
 const authRouter = require("./App/routes/authRoute");
 const errorHandler = require("./App/middlewares/errorHandler");
+const cors = require("cors");
+
+const corsOptions = {
+  credentials: true,
+  origin: ["http://localhost:3000"],
+};
 
 app.use(express.json());
-app.use(cors());
 app.use(cookieParser());
+app.use(cors(corsOptions));
 dbConnection();
 app.use(authRouter);
 

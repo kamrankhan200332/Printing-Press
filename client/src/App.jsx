@@ -13,24 +13,77 @@ import Cart from "./pages/Cart/Cart";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import Error from "./pages/Error/Error";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import Login from "./pages/Login/Login";
+import Protected from "./components/Protected/Protected";
 
 const App = () => {
+  const isAuth = true;
   return (
     <BrowserRouter>
-    <ScrollToTop />
+      <ScrollToTop />
       <div>
         <Navbar />
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="/sublimation" exact element={<Sublimation />} />
-          <Route path="/offset" exact element={<Offset />} />
-          <Route path="/stationery" exact element={<Stationery />} />
-          <Route path="/embroidery" exact element={<Embroidery />} />
-          <Route path="/uvPrinting" exact element={<UVPrinting />} />
-          <Route path="/largePrinting" exact element={<LargePrinting />} />
+          <Route
+            path="/sublimation"
+            exact
+            element={
+              <Protected isAuth={isAuth}>
+                <Sublimation />
+              </Protected>
+            }
+          />
+          <Route
+            path="/offset"
+            exact
+            element={
+              <Protected isAuth={isAuth}>
+                <Offset />
+              </Protected>
+            }
+          />
+          <Route
+            path="/stationery"
+            exact
+            element={
+              <Protected isAuth={isAuth}>
+                <Stationery />
+              </Protected>
+            }
+          />
+          <Route
+            path="/embroidery"
+            exact
+            element={
+              <Protected isAuth={isAuth}>
+                <Embroidery />
+              </Protected>
+            }
+          />
+          <Route
+            path="/uvPrinting"
+            exact
+            element={
+              <Protected isAuth={isAuth}>
+                <UVPrinting />
+              </Protected>
+            }
+          />
+          <Route
+            path="/largePrinting"
+            exact
+            element={
+              <Protected isAuth={isAuth}>
+                <LargePrinting />
+              </Protected>
+            }
+          />
           <Route path="/cart" exact element={<Cart />} />
           <Route path="/singleProduct" exact element={<SingleProduct />} />
           <Route path="/*" exact element={<Error />} />
+          <Route path="/login" exact element={<Login />} />
+          <Route path="/signup" exact element={<Login />} />
         </Routes>
         <Footer />
       </div>
