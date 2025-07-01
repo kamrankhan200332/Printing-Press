@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_INTERNAL_PATH,
+  baseURL: import.meta.env.VITE_API_INTERNAL_PATH,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -11,11 +11,23 @@ const api = axios.create({
 export const login = async (data) => {
   let response;
 
-    try {
-        response = await api.post("/login", data)
-    } catch (error) {
-        return error
-    }
+  try {
+    response = await api.post("/login", data);
+  } catch (error) {
+    return error;
+  }
 
-    return response;
+  return response;
+};
+
+export const signup = async (data) => {
+  let response;
+
+  try { 
+    response = await api.post("/register", data);
+  } catch (error) {
+    return error;
+  }
+
+  return response;
 };

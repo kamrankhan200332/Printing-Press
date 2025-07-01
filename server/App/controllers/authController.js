@@ -19,6 +19,7 @@ const authController = {
 
     const { error } = userRegisterSchema.validate(req.body);
     if (error) {
+      console.log(error);
       return next(error);
     }
 
@@ -84,7 +85,7 @@ const authController = {
       const registerDto = new AuthDto(registerUser);
       return res.status(201).json({
         message: "User registered successfully!",
-        response: registerDto,
+        user: registerDto,
         auth: true,
       });
     } catch (error) {
@@ -157,7 +158,7 @@ const authController = {
 
     return res.status(200).json({
       message: "User login successfully!",
-      response: loginDto,
+      user: loginDto,
       auth: true,
     });
   },

@@ -6,7 +6,7 @@ const errorHandler = (error, req, res, next) => {
   };
 
   if (error instanceof ValidationError) {
-    status = error.status;
+    status = 400;
     data.message = error.message;
     return res.status(status).json(data);
   }

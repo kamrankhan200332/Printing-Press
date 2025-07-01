@@ -15,9 +15,11 @@ import Error from "./pages/Error/Error";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import Login from "./pages/Login/Login";
 import Protected from "./components/Protected/Protected";
+import Signup from "./pages/Signup/Signup";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  const isAuth = true;
+  const isAuth = useSelector((state) => state.user.auth);
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -83,7 +85,7 @@ const App = () => {
           <Route path="/singleProduct" exact element={<SingleProduct />} />
           <Route path="/*" exact element={<Error />} />
           <Route path="/login" exact element={<Login />} />
-          <Route path="/signup" exact element={<Login />} />
+          <Route path="/signup" exact element={<Signup />} />
         </Routes>
         <Footer />
       </div>

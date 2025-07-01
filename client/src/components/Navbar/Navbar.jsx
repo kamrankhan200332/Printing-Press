@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../../assets/images/logo.webp";
+import logo from "../../assets/images/logo3.jpeg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { AiFillDelete } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
 import { ProdState } from "../../context/ContextApi";
 import { FaRegUserCircle } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const isAuthenticated = useSelector((state) => state.user.auth);
+  // const isAuthenticated = true;
   const [showCart, setShowCart] = useState(false);
   const [showUser, setShowUser] = useState(false);
 
@@ -30,7 +33,11 @@ const Navbar = () => {
       <header className="bg-white shadow-xl">
         <nav className="flex items-center justify-between w-[90%] m-auto py-[15px]">
           <Link to={"/"} onClick={() => setShowMenu(false)}>
-            <img className="w-[160px]" src={logo} alt="" />
+            <img
+              className="w-[80px] h-[80px] rounded-full border border-orange-400"
+              src={logo}
+              alt=""
+            />
           </Link>
 
           <div
@@ -182,21 +189,31 @@ const Navbar = () => {
                 <div className="cursor-pointer">
                   <FaRegUserCircle />
                 </div>
-                {showUser && (
+                {isAuthenticated ? (
                   <div className="dropdown font-semibold absolute top-11 right-0 z-50 rounded bg-gray-500 w-[200px] p-2 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-2">
                     <Link
-                      to={"/signup"}
-                      className="rounded cursor-pointer hover:bg-white hover:text-black py-1 px-2 border border-gray-400 w-full flex items-center justify-center"
+                      className="rounded w-full bg-red-700 hover:bg-red-800 text-white px-2 py-1 cursor-pointer flex items-center justify-center"
                     >
-                      Sign up
-                    </Link>
-                    <Link
-                      to={"/login"}
-                      className="rounded w-full bg-blue-700 text-white px-2 py-1 cursor-pointer flex items-center justify-center"
-                    >
-                      Login
+                      Logout
                     </Link>
                   </div>
+                ) : (
+                  showUser && (
+                    <div className="dropdown font-semibold absolute top-11 right-0 z-50 rounded bg-gray-500 w-[200px] p-2 flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-2">
+                      <Link
+                        to={"/signup"}
+                        className="rounded cursor-pointer hover:bg-white hover:text-black py-1 px-2 border border-gray-400 w-full flex items-center justify-center"
+                      >
+                        Sign up
+                      </Link>
+                      <Link
+                        to={"/login"}
+                        className="rounded w-full bg-blue-700 hover:bg-blue-800 text-white px-2 py-1 cursor-pointer flex items-center justify-center"
+                      >
+                        Login
+                      </Link>
+                    </div>
+                  )
                 )}
               </div>
             </div>
