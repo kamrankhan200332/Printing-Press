@@ -41,7 +41,7 @@ const Login = () => {
       navigate("/");
     } else if (response.code === "ERR_BAD_REQUEST") {
       // display error message
-      setError(response.response.data.errorMessage);
+      setError(response.response.data.message);
     }
   };
 
@@ -74,8 +74,14 @@ const Login = () => {
         errormessage={errors.password}
       />
       <button
-        className="bg-blue-700 text-white hover:bg-blue-800 cursor-pointer font-bold w-full py-[10px] px-[20px] text-xl rounded border-none outline-none mt-10 m-4"
+        className="bg-blue-700 text-white hover:bg-blue-800 cursor-pointer font-bold w-full py-[10px] px-[20px] text-xl rounded border-none outline-none mt-10 m-4 disabled:bg-[#6e8dfc]"
         onClick={handleLogin}
+        disabled={
+          !values.username ||
+          !values.password ||
+          errors.username ||
+          errors.password
+        }
       >
         Login
       </button>

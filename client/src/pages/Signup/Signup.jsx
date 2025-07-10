@@ -111,8 +111,20 @@ const Signup = () => {
         errormessage={errors.confirmPassword}
       />
       <button
-        className="bg-blue-700 text-white hover:bg-blue-800 cursor-pointer font-bold w-full py-[10px] px-[20px] text-xl rounded border-none outline-none mt-10 m-4"
+        className="bg-blue-700 text-white hover:bg-blue-800 cursor-pointer font-bold w-full py-[10px] px-[20px] text-xl rounded border-none outline-none mt-10 m-4 disabled:bg-[#6e8dfc]"
         onClick={handleSignup}
+        disabled={
+          !values.username ||
+          !values.password ||
+          !values.name ||
+          !values.confirmPassword ||
+          !values.email ||
+          errors.username ||
+          errors.password ||
+          errors.confirmPassword ||
+          errors.name ||
+          errors.email
+        }
       >
         Sign up
       </button>

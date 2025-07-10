@@ -10,24 +10,30 @@ const api = axios.create({
 
 export const login = async (data) => {
   let response;
-
   try {
     response = await api.post("/login", data);
   } catch (error) {
     return error;
   }
-
   return response;
 };
 
 export const signup = async (data) => {
   let response;
-
-  try { 
+  try {
     response = await api.post("/register", data);
   } catch (error) {
     return error;
   }
+  return response;
+};
 
+export const logout = async () => {
+  let response;
+  try {
+    response = await api.post("/logout");
+  } catch (error) {
+    return error;
+  }
   return response;
 };

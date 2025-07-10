@@ -6,6 +6,7 @@ const { PORT } = require("./config");
 const authRouter = require("./App/routes/authRoute");
 const errorHandler = require("./App/middlewares/errorHandler");
 const cors = require("cors");
+const productRouter = require("./App/routes/productRoute");
 
 const corsOptions = {
   origin: ["http://localhost:5173"],
@@ -16,7 +17,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
 dbConnection();
+
+// Routes
 app.use(authRouter);
+app.use(productRouter);
 
 app.use(errorHandler);
 
