@@ -5,12 +5,15 @@ import App from "./App.jsx";
 import ContextApi from "./context/ContextApi";
 import { Provider } from "react-redux";
 import store from "./store/index";
+import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <ContextApi>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ContextApi>
     </Provider>
   </StrictMode>
