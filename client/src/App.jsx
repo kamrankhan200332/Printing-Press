@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
@@ -23,7 +23,8 @@ import Sidebar from "./pages/Dashboard/Sidebar";
 import DashboardSignup from "./pages/Dashboard/DashboardSignup";
 import Notification from "./pages/Dashboard/Notification";
 import Billing from "./pages/Dashboard/Billing";
-import Table from "./pages/Dashboard/Table";
+import DashboardHeader from "./pages/Dashboard/DashboardHeader";
+import AddProduct from "./pages/Dashboard/AddProduct";
 
 const MainLayout = () => {
   const isAuth = useSelector((state) => state.user.auth);
@@ -95,19 +96,28 @@ const MainLayout = () => {
 };
 
 const DashboardLayout = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   return (
     <div className="flex">
-      <div className="w-[20%] mr-3">
-        <Sidebar />
+      <div
+        className={`${
+          sidebarOpen ? "w-[20%]" : "w-0"
+        } transition-all duration-300 overflow-hidden h-full sticky top-0`}
+      >
+        <Sidebar setSidebarOpen={setSidebarOpen} />
       </div>
-      <Routes>
-        <Route path="/dashboard" element={<Home_dashboard />} />
-        <Route path="/dashboard/login" element={<DashboardLogin />} />
-        <Route path="/dashboard/signup" element={<DashboardSignup />} />
-        <Route path="/dashboard/table" element={<Table />} />
-        <Route path="/dashboard/billing" element={<Billing />} />
-        <Route path="/dashboard/notification" element={<Notification />} />
-      </Routes>
+      <div className="flex-1">
+        {/* Pass the toggle function to Header so burger icon can use it */}
+        <DashboardHeader toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+        <Routes>
+          <Route path="/dashboard" element={<Home_dashboard />} />
+          <Route path="/dashboard/login" element={<DashboardLogin />} />
+          <Route path="/dashboard/signup" element={<DashboardSignup />} />
+          <Route path="/dashboard/addProduct" element={<AddProduct />} />
+          <Route path="/dashboard/billing" element={<Billing />} />
+          <Route path="/dashboard/notification" element={<Notification />} />
+        </Routes>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,10 @@
 const Joi = require("joi");
+const productModel = require("../models/product.model");
 
 const productController = {
   async productInsert(req, res, next) {
+    console.log("req.body", req.body);
+    console.log("req.files", req.files);
     const productSchema = Joi.object({
       name: Joi.string()
         .max(30)
@@ -40,23 +43,48 @@ const productController = {
         paragraph: Joi.string()
           .required()
           .messages({ "any.required": "paragraph is required!" }),
-        image: Joi.string()
-          .required()
-          .messages({ "any.required": "image is required!" }),
+        // image: Joi.string()
+        //   .required()
+        //   .messages({ "any.required": "image is required!" }),
       }),
     });
 
-    const { error } = productSchema.validate(req.body);
+    const payload = {
+      ...req.body,
+      description:
+        typeof req.body.description === "string"
+          ? JSON.parse(req.body.description)
+          : req.body.description,
+      stickerSize:
+        typeof req.body.stickerSize === "string"
+          ? JSON.parse(req.body.stickerSize)
+          : req.body.stickerSize,
+    };
+
+    const { error } = productSchema.validate(payload);
     if (error) {
       return next(error);
     }
 
-    const { name, price, description, stickerSize, brand } = req.body;
+    const { name, price, description, stickerSize, brand } = payload;
     const image = req.files["image"][0];
     const brandImage = req.files["brandImage"][0];
+
+    const insertObj = new productModel({
+      name,
+      price,
+      description,
+      stickerSize,
+      brand,
+      // image: image.path,
+      // brandImage: brandImage.path,
+    });
+    const insertResponse = await insertObj.save();
     res.status(201).json({
-      fullBody: { ...req.body, brand: brandImage.path },
-      image: req.files,
+      message: "Data inserted successfully",
+      response: insertResponse,
+      // fullBody: { ...req.body, brand: brandImage.path },
+      // image: req.files,
     });
   },
 };

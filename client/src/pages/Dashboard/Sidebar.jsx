@@ -4,22 +4,16 @@ import { Link, useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa6";
 import { FaSignInAlt } from "react-icons/fa";
 import { SiGnuprivacyguard } from "react-icons/si";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { FaProductHunt } from "react-icons/fa6";
+
 
 const Sidebar = () => {
   const location = useLocation();
-  const [toggleSidebar, setToggleSidebar] = useState(true);
-
-  const handleToggleSidebar = () => {
-    setToggleSidebar(!toggleSidebar);
-  };
 
   return (
-    <div>
+    <div className="">
       <div
-        className={`sidebar relative ${
-          toggleSidebar ? "w-[100%]" : "w-0 overflow-hidden"
-        } duration-300 transition-all ease-in-out  h-[100vh] bg-gray-700 p-3 rounded`}
+        className={`sidebar h-[100vh] bg-gray-700 p-3 rounded rounded-r-none `}
       >
         <div>
           <div className="flex items-center gap-2 py-2 px-3 text-white">
@@ -43,17 +37,17 @@ const Sidebar = () => {
           </Link>
 
           <Link
-            to={"/dashboard/table"}
+            to={"/dashboard/addProduct"}
             className={`flex items-center gap-2 p-3 rounded text-white font-semibold  ${
               location.pathname === "/dashboard/table"
                 ? "bg-blue-700"
                 : "hover:bg-blue-700"
             }`}
           >
-            <span>
-              <FaUser />
+            <span className="text-[18px]">
+              <FaProductHunt />
             </span>
-            <h1>Table</h1>
+            <h1>Add Product</h1>
           </Link>
           <Link
             to={"/dashboard/billing"}
@@ -122,12 +116,9 @@ const Sidebar = () => {
           </Link>
         </div>
 
-        <div
-          className="burger absolute top-2 right-2 cursor-pointer bg-gray-200 text-gray-700 p-1 rounded text-xl hover:bg-gray-100"
-          onClick={handleToggleSidebar}
-        >
+        {/* <div className="burger absolute top-2 right-2 cursor-pointer bg-gray-200 text-gray-700 p-1 rounded text-xl hover:bg-gray-100">
           <GiHamburgerMenu />
-        </div>
+        </div> */}
       </div>
     </div>
   );
